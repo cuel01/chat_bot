@@ -1,10 +1,11 @@
 import discord
 import asyncio
 import time
+import os
 
 client = discord.Client()
 
-token = "ODM1NDc1ODU1OTExMTU3ODIw.YIP_hg.wH8qu4Bspc52d0-_Gy0NpWR3Zco"
+token = os.environ["BOT_TOKEN"]
 
 # 디스코드 봇이 실행 됬을 때 작동하는 코드
 @client.event
