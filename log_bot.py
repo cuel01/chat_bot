@@ -16,10 +16,6 @@ async def on_ready():
     status=discord.Status.offline
     stop=0
     await client.change_presence(activity=activity, status=status)
-    embed = discord.Embed(title="메인 제목", description="설명", color=0x62c1cc) # Embed의 기본 틀(색상, 메인 제목, 설명)을 잡아줍니다
-    embed.set_footer(text="하단 설명") # 하단에 들어가는 조그마한 설명을 잡아줍니다
-    await client.get_channel(836766046488231987).send(embed=embed) # embed를 포함 한 채로 메시지를 전송합니다.
-    await client.get_channel(836766046488231987).send("할 말", embed=embed) # embed와 메시지를 함께 보내고 싶으시면 이렇게 사용하시면 됩니다.
 
 # 디스코드에서 누가 메시지를 보냈을 때 작동하는 코드
 @client.event
