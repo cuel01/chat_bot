@@ -4,12 +4,12 @@ import os
 
 client = discord.Client()
 
-token = 
+token = os.environ["BOT_TOKEN"]
 
 @client.event
 async def on_ready():
     print("chat_bot start")
-    channel_id=775223797250392068
+    channel_id=int(input("최초 생성 채널 id"))
     while True:
         msg=input()
         if "!channel " == msg[0:9]:
@@ -19,9 +19,3 @@ async def on_ready():
             await client.get_channel(channel_id).send(msg)
 
 client.run(token)
-
-'''
-소통방 775223797250392068
-크시 816299664251813938
-
-'''
