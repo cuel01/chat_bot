@@ -1,10 +1,10 @@
 import discord
 import asyncio
-import time
+import os
 
 client = discord.Client()
 
-token = "ODM1NDc1ODU1OTExMTU3ODIw.YIP_hg.wH8qu4Bspc52d0-_Gy0NpWR3Zco"
+token = 
 
 @client.event
 async def on_ready():
