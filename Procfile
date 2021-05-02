@@ -1,1 +1,1 @@
-worker: python chat_bot.py
+worker: python log_bot.py
