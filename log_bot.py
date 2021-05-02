@@ -38,7 +38,7 @@ async def on_message_delete(message):
         log_file_text=log_file_r.read()
         for i in range(len(log_file_text.split("\n"))-3, 0, -1):
             if str(log_file_text.split("\n")[i].split(" ")[0])=="on_message" and int(str(log_file_text).split("\n")[i].split()[1])==message.id:
-                await message.channel.send(" ".join(log_file_text.split("\n")[i].split(" ")[2:7])+" "+str(message.author)+" : "+str(message.content))
+                await message.channel.send(" ".join(log_file_text.split("\n")[i].split(" ")[2:8])+" "+str(message.author)+" : "+str(message.content))
                 break
         await message.channel.send("날짜 추정 불가 "+str(message.author)+" : "+str(message.content))
         
