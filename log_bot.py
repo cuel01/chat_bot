@@ -27,6 +27,7 @@ async def on_message(message):
 # 디스코드에서 누가 메시지를 지웠을 때 작동하는 코드
 @client.event
 async def on_message_delete(message):
+    log_time_data=False
     msg_log="on_message_delete "+str(message.id)+" <"+str(time.ctime(time.time()))+"> " + str(message.channel.name) + " (id : " + str(message.channel.id) + ") "+str(message.author.name)+ "(# " + str(message.author.discriminator) + ") " +  "(id : "+str(message.author.id)+") " + str(message.content) 
     log_file_a = open("log.txt", "a",encoding='UTF-8')
     log_file_a.write(msg_log + "         " + str(message)+"\n")
@@ -39,7 +40,9 @@ async def on_message_delete(message):
         for i in range(len(log_file_text.split("\n"))-3, 0, -1):
             if str(log_file_text.split("\n")[i].split(" ")[0])=="on_message" and int(str(log_file_text).split("\n")[i].split()[1])==message.id:
                 await message.channel.send(" ".join(log_file_text.split("\n")[i].split(" ")[2:8])+" "+str(message.author)+" : "+str(message.content))
+                log_time_data=True
                 break
-        await message.channel.send("날짜 추정 불가 "+str(message.author)+" : "+str(message.content))
+        if not(log_time_data):
+            await message.channel.send("날짜 추정 불가 "+str(message.author)+" : "+str(message.content))
         
 client.run(token)
